@@ -1,5 +1,5 @@
 # JapowWatch
-Tracking weather conditions + lift operation status for Japanese snow resorts. Repo demonstrates integration of the OpenWeatherMap API with a Python-based data processing engine to track snow conditions in Japan.
+Tracking weather conditions + lift operation status for Japanese snow resorts. Repo demonstrates integration of the OpenWeatherMap API with python data processing to track snow conditions in Japan.
 
 # Technical Environment
 * **Operating System:** macOS 14.0
