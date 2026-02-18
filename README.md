@@ -6,6 +6,16 @@ Tracking weather conditions + lift operation status for Japanese snow resorts. R
 * **Compiler/Language:** Python 3.14
 * **Libraries:** `requests`, `pandas`, `python-dotenv`
 
+## Instructions to compile PROOF OF CONCEPT NO API
+**POC Instructions - NO Api key req'd**
+1. **Clone the Repository**
+    `git clone https://github.com/ChrisWPhelps/JapowWatch.git`
+2.  **Install Dependencies:**
+    `pip install requests pandas python-dotenv`
+3. **Execute:**
+    `python Script.py`
+
+
 ## Instructions to compile
 1.  **Clone the Repository:**
     `git clone https://github.com/ChrisWPhelps/JapowWatch.git`
