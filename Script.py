@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 API_KEY = os.getenv("OPENWEATHER_API_KEY")
 
-
+"""
 def get_snow_data(resort_name, lat, lon):
     #temp metric set to celsius
     url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_KEY}&units=metric"
@@ -26,8 +26,9 @@ def get_snow_data(resort_name, lat, lon):
 
     except requests.exceptions.RequestException as e:
         print(f"Failed to connect: {e}")
-
+"""
 
 if __name__ == "__main__":
-    #Hakuba for test
-    get_snow_data("Hakuba Valley Region", 36.6982, 137.8619)
+
+    #Test function get_snow_data("Hakuba Valley Region", 36.6982, 137.8619)
+    print("This has compiled-actual functionality removed due to API key req.")
