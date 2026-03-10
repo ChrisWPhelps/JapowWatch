@@ -1,0 +1,56 @@
+.App {
+  text-align: center;
+  height: 100vh;
+}
+
+.App-header {
+  background-color: #bdc4d3;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 90%;
+  width: 100%;
+}
+
+.map-section{
+  background-color: rgba(234, 116, 3);
+  height: 100%;
+  width: 40%;
+}
+
+.map-frame-wrapper {
+  display: flex;              /* ✅ Flexbox only on wrapper */
+  justify-content: center;
+  align-items: center;
+  height: 100%;               /* Wrapper fills map-section */
+}
+
+.map-frame {
+  background-color: rgba(8, 8, 29);
+  height: 85%;
+  width: 85%;
+  transform: translate(45px, 0);  /* Shift right */
+}
+
+.map {
+  height: 90%;
+}
+
+.resorts-section{
+  background-color: rgba(22, 42, 77);
+  height: 100%;
+  width: 60%;
+}
+
+
+
