@@ -1,28 +1,40 @@
-# JapowWatch
-Tracking weather conditions + lift operation status for Japanese snow resorts. Repo demonstrates integration of the OpenWeatherMap API with python data processing to track snow conditions in Japan.
+# Japow Watch
 
-# Technical Environment
-* **Operating System:** macOS 14.0
-* **Compiler/Language:** Python 3.14
-* **Libraries:** `requests`, `pandas`, `python-dotenv`
+Backend data pipeline for Japow Watch. This project aggregates live weather and mountain conditions for Japan ski resorts and provides a JSON payload for the frontend map.
 
-## Instructions to compile PROOF OF CONCEPT NO API
-**POC Instructions - NO Api key req'd**
-1. **Clone the Repository**
-    `git clone https://github.com/ChrisWPhelps/JapowWatch.git`
-2.  **Install Dependencies:**
-    `pip install requests pandas python-dotenv`
-3. **Execute:**
-    `python Script.py`
+## Tech Stack
+* Language: Python 3.14.2
+* Database: SQLite3
+* APIs: OpenWeather (Current Weather)
+* Data Format: JSON
 
+## How the Pipeline Works
+1. init_db.py: Sets up SQLite tables and seeds resorts with GPS coordinates.
+2. script.py: Hits OpenWeather API for live temperatures and sky conditions.
+3. batch_update.py: Merges snow depth and lift status from the crawler into the database.
+4. Currently simulating crawler data in scraper_results.json.
 
-## Instructions to compile
-1.  **Clone the Repository:**
-    `git clone https://github.com/ChrisWPhelps/JapowWatch.git`
-2.  **Install Dependencies:**
-    `pip install requests pandas python-dotenv`
-3.  **API Key Setup:**
-    - Create a file named `.env` in the root directory.
-    - Add your key: `OPENWEATHER_API_KEY=your_key_here`
-4.  **Execute:**
-    `python Script.py`
+## Project Structure
+* init_db.py: Run once to create the database (japow_watch.db).
+* main.py: Master controller script. Run this to execute the full pipeline at once.
+* script.py: Handles API ingestion.
+* batch_update.py: Handles crawler data ingestion (reads from scraper_results.json).
+* export_to_json.py: Generates resort_data.json for the frontend.
+
+## Setup Instructions
+1. API Key: Create a .env file and add: OPENWEATHER_API_KEY=your_key_here.
+2. Initialize: Run python init_db.py to build the database.
+3. Run Pipeline: Run python main.py.
+4. Output: Check resort_data.json for the final data.
+
+---
+
+##CAO 3.18
+
+### Daniel
+Please output your crawler data to scraper_results.json. 
+**Important:** Ensure your resort names match the database exactly so batch_update.py can find them. If a name is different, it must be added to the NAME_MAP.
+
+### Jhinensky
+The resort_data.json is currently generated from dummy data, but the structure is final for crawler integration. 
+**Note:** lift_status is an array of objects to allow for easy indexing, lmk if it's not going as expected.

@@ -1,0 +1,17 @@
+
+[
+  [
+    {"resort_name": "Happo-one"},
+    {"Kurobishi": "220", "Usagidaira": "112"},
+    {},
+    {"Grat Quad": "Open", "Alpen Quad": "Open"},
+    {"last_updated": "2026-03-18 15:52"}
+  ],
+  [
+    {"resort_name": "Niseko United"},
+    {"Grand Hirafu": "350", "Annupuri": "310"},
+    {},
+    {"Gondola": "Open", "Jumbo Pair": "Closed"},
+    {"last_updated": "2026-03-18 16:00"}
+  ]
+]
