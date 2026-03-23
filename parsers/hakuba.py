@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 
 
-def get_snow_depth():
+def get_snow():
     # url that contains snow depth + snowfall data
     url = 'https://www.happo-one.jp/en/'
     response = requests.get(url)
@@ -29,25 +29,14 @@ def get_snow_depth():
 
     snowdepth_dic = dict(zip(mountains, snow_depth))
 
-    return snowdepth_dic
-
-def get_snowfall():
-    url = 'https://www.happo-one.jp/en/'
-    response = requests.get(url)
-
-    soup = BeautifulSoup(response.text, 'html.parser')
-
-    # Same as snow depth
     snowfall = soup.find_all(string = 'SnowFall')
 
     for i in range(3):
         snowfall[i] = snowfall[i].parent.parent.find('strong').string
 
-    mountains = ['Kurobishi', 'Usagidaira', 'Nakiyama']
-
     snowfall_dic = dict(zip(mountains, snowfall))
 
-    return snowfall_dic
+    return [snowdepth_dic, snowfall_dic]
 
 
 
@@ -84,8 +73,8 @@ def get_data():
     last_updated = {"last_updated" : datetime.now().strftime('%Y-%m-%d %H:%M')}
 
     final_return = [resort_name, 
-                    get_snow_depth(), 
-                    get_snowfall(),
+                    get_snow()[0], 
+                    get_snow()[1],
                     get_lift_status(),
                     last_updated]
     
