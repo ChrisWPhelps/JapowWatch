@@ -20,6 +20,8 @@ Backend data pipeline for Japow Watch. This project aggregates live weather and 
 * script.py: Handles API ingestion.
 * batch_update.py: Handles crawler data ingestion (reads from scraper_results.json).
 * export_to_json.py: Generates resort_data.json for the frontend.
+* crawler.py: The master scraper that triggers all individual resort scripts.
+* parsers/: Directory containing specific scraping logic for each mountain.
 
 ## Setup Instructions
 1. API Key: Create a .env file and add: OPENWEATHER_API_KEY=your_key_here.

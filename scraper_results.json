@@ -1,17 +1,79 @@
-
 [
-  [
-    {"resort_name": "Happo-one"},
-    {"Kurobishi": "220", "Usagidaira": "112"},
-    {},
-    {"Grat Quad": "Open", "Alpen Quad": "Open"},
-    {"last_updated": "2026-03-18 15:52"}
-  ],
-  [
-    {"resort_name": "Niseko United"},
-    {"Grand Hirafu": "350", "Annupuri": "310"},
-    {},
-    {"Gondola": "Open", "Jumbo Pair": "Closed"},
-    {"last_updated": "2026-03-18 16:00"}
-  ]
+    [
+        {
+            "resort_name": "Rusutsu Resort"
+        },
+        {
+            "West Mt.": "120",
+            "East Mt.": "125",
+            "Mt. Isola": "165"
+        },
+        {
+            "West Mt.": "0",
+            "East Mt.": "0",
+            "Mt. Isola": "0"
+        },
+        {
+            "Yotei gondola": "Closed",
+            "West No.1 Quad Lift": "Operating",
+            "West No.2 Quad Lift": "Operating",
+            "West Tiger Pair Lift": "Operating",
+            "East No.1 Gondola": "Operating",
+            "East No.2 Gondola": "Operating",
+            "East Quad Lift": "Operating",
+            "East No.1 Pair Lift": "Operating",
+            "East No.2 Pair Lift": "Closed",
+            "Tower Pair Lift": "Operating",
+            "Isola Gondola": "Operating",
+            "Across No.1 Pair Lift": "Closed",
+            "Across No.2 Pair Lift": "Operating",
+            "Isola No.1 Quad Lift": "Operating",
+            "Isola No.2 Quad Lift": "Operating",
+            "Isola No.3 Quad Lift": "Operating",
+            "Isola No.4 Quad Lift": "Closed",
+            "Isola No.5 Pair Lift": "Closed"
+        },
+        {
+            "last_updated": "2026-03-23 15:56"
+        }
+    ],
+    [
+        {
+            "resort_name": "Hakuba Happo-One"
+        },
+        {
+            "Kurobishi": "190",
+            "Usagidaira": "98",
+            "Nakiyama": "25"
+        },
+        {
+            "Kurobishi": "0",
+            "Usagidaira": "0",
+            "Nakiyama": "0"
+        },
+        {
+            "Grat Quad": "Closed",
+            "Alpen Quad": "Closed",
+            "Usagidaira": "Closed",
+            "Happo Riesen Quad": "Closed",
+            "Nakiyama 2": "Closed",
+            "Nakiyama 3": "Open",
+            "ADAM Gondola": "Open",
+            "Shirakaba 1": "Closed",
+            "Shirakaba 2": "Closed",
+            "Panorama": "Open",
+            "Kokusai 1": "Closed",
+            "Kokusai 3": "Open",
+            "Kurobishi Quad": "Open",
+            "Kurobishi 3": "Closed",
+            "Skyline 2": "Closed",
+            "Sakka 2": "Closed",
+            "Sakka 3": "Closed",
+            "Sakka Kitaone Quad": "Closed",
+            "Kitaone 3": "Closed"
+        },
+        {
+            "last_updated": "2026-03-23 15:56"
+        }
+    ]
 ]
