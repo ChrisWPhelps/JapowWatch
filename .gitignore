@@ -21,3 +21,4 @@ Thumbs.db
 # Project specific outputs
 resort_data.json
 useful cmds
+__pycache__/
