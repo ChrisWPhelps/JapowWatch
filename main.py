@@ -3,7 +3,7 @@ import os
 
 
 def run_step(script_name):
-    print(f"{script_name} STARTED")
+    print(f"{script_name} started")
     result = subprocess.run(['python', script_name], capture_output=True, text=True)
 
     # Print standard output from the script
