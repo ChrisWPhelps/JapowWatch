@@ -120,6 +120,7 @@ body {
 }
 
 .map-panel {
+  height: 100vh;
   position: relative;
   overflow: hidden;
   border-right: 1px solid var(--border);

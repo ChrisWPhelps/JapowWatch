@@ -9,7 +9,7 @@ API_KEY = os.getenv("OPENWEATHER_API_KEY")
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.join(BASE_DIR, 'japow_watch.db')
 
-
+print(API_KEY)
 def update_all_resorts():
     #getch every resort in db and updates weather
     conn = sqlite3.connect(DB_PATH)

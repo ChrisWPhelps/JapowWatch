@@ -3,7 +3,7 @@ import os
 
 def run_step(script_name):
     print(f"Running {script_name}")
-    result = subprocess.run(['python', script_name], capture_output=True, text=True)
+    result = subprocess.run(['python3', script_name], capture_output=True, text=True)
     print(result.stdout)
     if result.stderr:
         print(f"ERROR in {script_name}: {result.stderr}")
