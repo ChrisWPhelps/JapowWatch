@@ -12,7 +12,8 @@ from parsers import (
     kandatsu_kogen,
     ishiuchi,
     lotte_arai_resort,
-    myoko_akakura_onsen
+    myoko_akakura_onsen,
+    madarao_mountain_resort
 )
 
 
@@ -34,6 +35,7 @@ def run_crawler():
         ("Ishiuchi Maruyama", ishiuchi.get_data),
         ("Lotte Arai Resort", lotte_arai_resort.get_data),
         ("Myoko Akakura Onsen", myoko_akakura_onsen.get_data),
+        ("Madarao Mountain Resort", madarao_mountain_resort.get_data),
     ]
 
     success_count = 0
@@ -49,8 +51,9 @@ def run_crawler():
         except Exception as e:
             print(f"  [ERROR] Scraping {name}: {e}")
 
-    # Save the master list to the file consumed by the batch_update.py script
-    output_file = 'data/scraper_results.json'
+    base_dir = os.path.dirname(__file__)
+    output_file = os.path.join(base_dir, 'data', 'scraper_results.json')
+
     try:
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(all_resort_data, f, indent=4, ensure_ascii=False)
