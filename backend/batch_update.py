@@ -5,7 +5,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.join(BASE_DIR, 'japow_watch.db')
 
-# Mapping scraper names to DB names
+# Mapping scraper names to DB names **Does this still need to exist**?
 NAME_MAP = {
     "Happo-one": "Hakuba Happo-One",
     "Niseko-Village": "Niseko United"
@@ -13,9 +13,7 @@ NAME_MAP = {
 
 
 def normalize_scraper_data(raw_data):
-    """
-    Trans crawler list struct -> DB compat format. Converts lift dict into array for indexing on FE.
-    """
+    #Turns crawler list struct -> DB compat format. Converts lift dict into array for indexing on FE.
     try:
         raw_name = raw_data[0].get('resort_name')
         db_name = NAME_MAP.get(raw_name, raw_name) #In case there's name updates-we'll adjust the NAME_MAP[line 9
@@ -25,7 +23,7 @@ def normalize_scraper_data(raw_data):
         depth_values = [int(v) for v in depth_dict.values() if v.isdigit()]
         avg_snow = sum(depth_values) // len(depth_values) if depth_values else 0 #Avg snow depth
 
-        #format Lift Status as an Array of Objects Lift statuses -> array, output should be [{"name": "Grat Quad", "status": "Open"}..
+        #format Lift Status as an array of bjects lift statuses -> array, output should be [{"name": "Grat Quad", "status": "Open"}..
         lift_dict = raw_data[3]
         lift_array = [{"name": k, "status": v} for k, v in lift_dict.items()]
 
@@ -54,7 +52,7 @@ def process_scraper_file(file_name='scraper_results.json'):
         print(f"ERROR: {file_name} is not valid JSON.")
         return
 
-    conn = sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect('data/japow_watch.db')
     cursor = conn.cursor()
 
     #check if input is single or multiple resortt list

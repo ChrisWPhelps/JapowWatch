@@ -93,7 +93,7 @@ def get_data():
         driver.quit()
 
     return [
-        {"resort_name": "Akakura Onsen"},
+        {"resort_name": "Myoko Akakura Onsen"},
         {"Summit": snow_depth, "Base": snow_depth},
         {"Base": "0"},
         lift_status_dic,
