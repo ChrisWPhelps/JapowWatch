@@ -1,7 +1,18 @@
 import sqlite3
+import os
+
 
 def setup_database():
-    conn = sqlite3.connect('data/japow_watch.db')
+    # Make the path absolute to the script's location
+    base_dir = os.path.dirname(__file__)
+    data_dir = os.path.join(base_dir, 'data')
+
+    # Ensure the data directory actually exists before SQLite tries to write to it
+    os.makedirs(data_dir, exist_ok=True)
+
+    db_path = os.path.join(data_dir, 'japow_watch.db')
+
+    conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
     #Create tables
