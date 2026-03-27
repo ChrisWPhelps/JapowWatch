@@ -1,0 +1,15 @@
+# 1. Delete the database and the exported JSON
+rm japow_watch.db resort_data.json
+
+# 2. Re-initialize the database schema and seed data
+python init_db.py
+
+# 3. Run the full collection and update pipeline
+python main.py
+
+sqlite3 japow_watch.db "SELECT * FROM daily_stats;"
+
+
+https://education.github.com/git-cheat-sheet-education.pdf
+
+source .venv/bin/activate

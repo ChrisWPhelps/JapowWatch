@@ -1,0 +1,72 @@
+import json
+import os
+from datetime import datetime
+
+# Import individual resort parsers from the 'parsers' directory
+from parsers import (
+    rusutsu,
+    hakuba,
+    hakuba_cortina,
+    aomori_spring,
+    geto_kogen_resort,
+    kandatsu_kogen,
+    ishiuchi,
+    lotte_arai_resort,
+    myoko_akakura_onsen
+)
+
+
+def run_crawler():
+    start_time = datetime.now()
+    print(f"--- STARTING CRAWL AT {start_time.strftime('%H:%M:%S')} ---")
+
+    # This list will hold the 'Final Return' from every resort parser
+    all_resort_data = []
+
+    # The Task List: (Resort Label, Function Reference)
+    tasks = [
+        ("Rusutsu", rusutsu.get_data),
+        ("Hakuba", hakuba.get_data),
+        ("Hakuba Cortina", hakuba_cortina.get_data),
+        ("Aomori Spring", aomori_spring.get_data),
+        ("Geto Kogen Resort", geto_kogen_resort.get_data),
+        ("Kandatsu Kogen", kandatsu_kogen.get_data),
+        ("Ishiuchi Maruyama", ishiuchi.get_data),
+        ("Lotte Arai Resort", lotte_arai_resort.get_data),
+        ("Myoko Akakura Onsen", myoko_akakura_onsen.get_data),
+    ]
+
+    success_count = 0
+    total_tasks = len(tasks)
+
+    for name, get_data_func in tasks:
+        try:
+            print(f"Scraping {name}...")
+            data = get_data_func()
+            all_resort_data.append(data)
+            success_count += 1
+            print(f"  [SUCCESS] {name} updated.")
+        except Exception as e:
+            print(f"  [ERROR] Scraping {name}: {e}")
+
+    # Save the master list to the file consumed by the batch_update.py script
+    output_file = 'scraper_results.json'
+    try:
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(all_resort_data, f, indent=4, ensure_ascii=False)
+        print(f"\nMaster file saved to {output_file}")
+    except Exception as e:
+        print(f"\n[CRITICAL ERROR] Failed to save JSON: {e}")
+
+    end_time = datetime.now()
+    duration = end_time - start_time
+
+    print("\n" + "=" * 40)
+    print(f"CRAWL COMPLETE")
+    print(f"Status: {success_count}/{total_tasks} resorts successfully scraped.")
+    print(f"Duration: {duration.total_seconds():.2f} seconds")
+    print("=" * 40 + "\n")
+
+
+if __name__ == "__main__":
+    run_crawler()

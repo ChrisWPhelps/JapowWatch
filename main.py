@@ -1,26 +1,37 @@
 import subprocess
 import os
 
+
 def run_step(script_name):
-    print(f"Running {script_name}")
-    result = subprocess.run(['python3', script_name], capture_output=True, text=True)
-    print(result.stdout)
+    print(f"{script_name} started")
+    result = subprocess.run(['python', script_name], capture_output=True, text=True)
+
+    # Print standard output from the script
+    if result.stdout:
+        print(result.stdout)
+
+    # Print errors if they occurred
     if result.stderr:
-        print(f"ERROR in {script_name}: {result.stderr}")
+        print(f"ERROR in {script_name}:\n{result.stderr}")
+    print(f" {script_name} Finished\n")
 
 
 def main():
-    #gets weather from OW API and creates todays rows in db.
+    # 1. Execute all scrapers in the /scrapers folder
+    # This generates a fresh scraper_results.json
+    run_step('crawler.py')
+
+    # 2. Get weather from OpenWeather API
+    # This creates today's rows in the daily_stats table
     run_step('script.py')
 
-    #update rows with snow/lift status
-    ##We're using a sample data from one resort from the scraper, when we get to it/in production, the scraper would trigger this
+    # 3. Update those rows with snow and lift status from the scraper results
     run_step('batch_update.py')
 
-    #Generates the JSON file for FE.
+    # 4. Generate the final JSON file for the frontend
     run_step('export_to_json.py')
 
-    print("pipeline finished: resort_data.json for export to FE")
+    print("PIPELINE COMPLETE: resort_data.json is ready for the frontend.")
 
 
 if __name__ == "__main__":
