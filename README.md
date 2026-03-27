@@ -17,7 +17,7 @@ This project aggregates live weather and mountain conditions for Japan ski resor
 ## Setup Instructions
 1. **API Key**: Create a .env file in the /backend directory and add: `OPENWEATHER_API_KEY=your_key_here`.
 2. **Install Dependencies**: Run `pip install -r requirements.txt` from the root directory.
-3. **Initialize**: Navigate to /backend and run `python init_db.py` to build the database.
+3. **Initialize**: From the root directory, run `python init_db.py` to build the database.
 4. **Run Pipeline**: From the root directory, execute `./run_backend.sh`.
 5. **Output**: Check `resort_data.json` in the root directory for the final data.
 
