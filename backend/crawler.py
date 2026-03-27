@@ -23,7 +23,7 @@ def run_crawler():
     # This list will hold the 'Final Return' from every resort parser
     all_resort_data = []
 
-    # The Task List: (Resort Label, Function Reference)
+    # task list - needs to be updated as crawlers are finished.
     tasks = [
         ("Rusutsu", rusutsu.get_data),
         ("Hakuba", hakuba.get_data),
@@ -50,7 +50,7 @@ def run_crawler():
             print(f"  [ERROR] Scraping {name}: {e}")
 
     # Save the master list to the file consumed by the batch_update.py script
-    output_file = 'scraper_results.json'
+    output_file = 'data/scraper_results.json'
     try:
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(all_resort_data, f, indent=4, ensure_ascii=False)

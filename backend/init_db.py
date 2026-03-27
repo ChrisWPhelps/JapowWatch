@@ -1,7 +1,7 @@
 import sqlite3
 
 def setup_database():
-    conn = sqlite3.connect('japow_watch.db')
+    conn = sqlite3.connect('data/japow_watch.db')
     cursor = conn.cursor()
 
     #Create tables
@@ -31,7 +31,7 @@ def setup_database():
             FOREIGN KEY (resort_id) REFERENCES resorts (id)
         )
     ''')
-    #from the master resort.csv into the tables
+    #from the master resort.csv into the tables THIS probably doesnt need to contain the urls. Leaving for now (dont wanna break something mid crunch time)
     resort_data = [
         ("Niseko United", "https://www.niseko.ne.jp/en/status/", "Hokkaido", "Hokkaido", 42.8635, 140.7028),
         ("Rusutsu Resort", "https://rusutsu.com/en/snow-and-weather-report/", "Hokkaido", "Hokkaido", 42.7496, 140.9073),
