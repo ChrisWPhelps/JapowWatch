@@ -31,10 +31,10 @@ This runs the full chain:
 ## Setup Instructions
 
 ### 1) API Key
-Create `backend/.env` and add:
+Create a `.env` file in the repo root (same folder as `README.md`) and add:
 `OPENWEATHER_API_KEY=your_key_here`
 
-Note: `./run_backend.sh` changes directory into `backend/`, so the weather loader expects the key in `backend/.env`.
+The backend weather loader uses `python-dotenv`, so it can pick up the repo-root `.env` when running the pipeline.
 
 ### 2) Install Dependencies
 From the repo root:
