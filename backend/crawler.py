@@ -15,6 +15,7 @@ from parsers import (
     myoko_akakura_onsen,
     madarao_mountain_resort
 )
+from parsers.snow_contract import normalize_scraper_result
 
 
 def run_crawler():
@@ -45,7 +46,9 @@ def run_crawler():
         try:
             print(f"Scraping {name}...")
             data = get_data_func()
-            all_resort_data.append(data)
+            # Contract safety: normalize depth/new-snow values so export/tests
+            # never see dash placeholders like "-" or "—".
+            all_resort_data.append(normalize_scraper_result(data))
             success_count += 1
             print(f"  [SUCCESS] {name} updated.")
         except Exception as e:
