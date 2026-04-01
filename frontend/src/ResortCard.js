@@ -14,11 +14,14 @@ function SnowBar({ depth }) {
   );
 }
 
-export default function ResortCard({ resort, selected, onClick }) {
+export default function ResortCard({ resort, selected, onClick, cardRef }) {
   const sc = statusColors[resort.status] ?? "#6a7aa8";
   return (
-    <div className={`resort-card${selected ? " selected" : ""}`} onClick={() => onClick(resort)}>
-
+    <div
+      ref={cardRef}
+      className={`resort-card${selected ? " selected" : ""}`}
+      onClick={() => onClick(resort)}
+    >
       {/* Name + region + status */}
       <div className="card-top">
         <div>
@@ -33,7 +36,7 @@ export default function ResortCard({ resort, selected, onClick }) {
             color: sc,
           }}
         >
-          {statusLabels[resort.status] ?? "Unknown"}
+          {resort.timestamp ? new Date(resort.timestamp).toLocaleString() : "Unknown"}
         </div>
       </div>
 
@@ -42,15 +45,15 @@ export default function ResortCard({ resort, selected, onClick }) {
       {/* Stats */}
       <div className="card-stats">
         <div className="stat-box">
-          <div className="stat-label">Temp</div>
+          <div className="stat-label">Temp (C°)</div>
           <div className="stat-value">
-            {resort.temp_celsius != null ? `${resort.temp_celsius}°` : "—"}
+            {resort.temp_celsius != null ? `${resort.temp_celsius}` : "—"}
           </div>
         </div>
         <div className="stat-box">
-          <div className="stat-label">Snow</div>
+          <div className="stat-label">Snow (cm)</div>
           <div className="stat-value">
-            {resort.snow_depth_cm != null ? `${resort.snow_depth_cm}cm` : "—"}
+            {resort.snow_depth_cm != null ? `${resort.snow_depth_cm}` : "—"}
           </div>
         </div>
         <div className="stat-box">
