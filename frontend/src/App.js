@@ -6,12 +6,19 @@ import { statusColors, statusLabels } from "./utils";
 
 // ── Filters:  loops through
 function Filters({ resorts, filter, onChange }) {
-  const regions = ["Prefecture", ...new Set(resorts.map(r => r.region))];
+  const regions = ["All", ...new Set(resorts.map(r => r.region))];
   return (
     <div className="filters">
-      <select className="filter-select" value={filter.region}
-        onChange={e => onChange({ ...filter, region: e.target.value })}>
-        {regions.map(r => <option key={r}>{r}</option>)}
+      <select 
+        className="filter-select" 
+        value={filter.region}
+        onChange={e => onChange({ ...filter, region: e.target.value })}
+      >
+        <option value="" disabled>Prefecture</option>
+        {regions.map(r => 
+          <option 
+          key={r}> {r}
+          </option>)}
       </select>
       <input className="filter-input" placeholder="Search resort…"
         value={filter.query}
@@ -31,10 +38,10 @@ export default function SkiJapan() {
   }, []);
 
   const [selected, setSelected] = useState(null);
-  const [filter, setFilter] = useState({ region: "Prefecture", query: "" });
+  const [filter, setFilter] = useState({ region: "All", query: "" });
 
   const filtered = resorts.filter(r => {
-    if (filter.region !== "Prefecture" && r.region !== filter.region) return false;
+    if (filter.region !== "All" && r.region !== filter.region) return false;
     if (filter.query) {
       const q = filter.query.toLowerCase();
       if (!r.name.toLowerCase().startsWith(q) && !r.region.toLowerCase().startsWith(q)) return false;
