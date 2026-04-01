@@ -106,4 +106,6 @@ def get_data():
 
     return [resort_name, snow[0], snow[1], lifts, last_updated]
 
-print (get_data())
+
+if __name__ == "__main__":
+    print(get_data())
