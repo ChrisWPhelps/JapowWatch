@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -16,98 +17,134 @@ LIFT_NAME_MAP = {
     '山麓第2リフト': 'Sanroku 2nd Lift'
 }
 
+_COOKIE_SELECTORS = [
+    "button#onetrust-accept-btn-handler",
+    "#onetrust-accept-btn-handler",
+    "button[aria-label*='Accept']",
+    "button[aria-label*='accept']",
+    ".btn-cookie-accept",
+    "button.btn-cookie-accept",
+    "button[class*='cookie'][class*='accept']",
+    "button[class*='close']",
+]
+
+
+def _dismiss_cookies(driver, wait_s=2):
+    for sel in _COOKIE_SELECTORS:
+        try:
+            el = WebDriverWait(driver, wait_s).until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, sel))
+            )
+            el.click()
+            time.sleep(0.4)
+            return
+        except Exception:
+            continue
+
+
+def _scroll_for_lazy_content(driver):
+    for y in (400, 1000, 1800, 2800, 4000):
+        driver.execute_script(f"window.scrollTo(0, {y});")
+        time.sleep(0.7)
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    time.sleep(1.2)
+
+
+def _parse_lifts_from_soup(soup):
+    lift_status_dic = {}
+    lift_items = soup.select(".txt-data-wrap li.txt-data-item")
+    if not lift_items:
+        lift_items = soup.select("li.txt-data-item")
+
+    for item in lift_items:
+        name_span = item.find("span", class_=lambda c: c and "data-info" in c)
+        if not name_span:
+            name_span = item.select_one("span.data-info")
+        status_span = item.find("span", class_=lambda c: c and "data-status" in c)
+        if not status_span:
+            status_span = item.select_one("span.data-status")
+
+        if not name_span or not status_span:
+            continue
+
+        name_raw = name_span.get_text(strip=True)
+        status_icon = status_span.find("i", class_=re.compile(r"ico-arai"))
+        if status_icon:
+            classes = status_icon.get("class", [])
+            is_open = any("open" in c.lower() for c in classes)
+            status = "Open" if is_open else "Closed"
+        else:
+            status = "Closed"
+
+        name_en = LIFT_NAME_MAP.get(name_raw, name_raw)
+        lift_status_dic[name_en] = status
+
+    return lift_status_dic
+
 
 def get_data():
-    url = 'https://www.lottehotel.com/arai-resort/en/snow/slopes-guide'
-    driver = webdriver.Chrome()
+    url = "https://www.lottehotel.com/arai-resort/en/snow/slopes-guide"
+    opts = Options()
+    opts.add_argument("--window-size=1920,1080")
 
+    driver = webdriver.Chrome(options=opts)
     snow_depth = "0"
     lift_status_dic = {}
 
     try:
+        driver.set_page_load_timeout(45)
         driver.get(url)
 
-        # 1. DISMISS COOKIE BANNER
-        try:
-            WebDriverWait(driver, 5).until(
-                EC.element_to_be_clickable((By.CSS_SELECTOR, "button[class*='close'], .btn-cookie-accept"))
-            ).click()
-        except:
-            pass
+        _dismiss_cookies(driver)
+        time.sleep(0.5)
 
-        # 2. TRIGGER LAZY LOADING
-        # Scrolling down to the today-chips-wrap area
-        driver.execute_script("window.scrollTo(0, 1800);")
-        time.sleep(3)
+        _scroll_for_lazy_content(driver)
 
-        # 3. WAIT FOR LIFT WRAPPER
-        # Waiting for the actual list items you identified
-        WebDriverWait(driver, 15).until(
-            EC.presence_of_element_located((By.CLASS_NAME, "txt-data-item"))
+        WebDriverWait(driver, 25).until(
+            EC.any_of(
+                EC.presence_of_element_located((By.CSS_SELECTOR, "li.txt-data-item")),
+                EC.presence_of_element_located((By.CSS_SELECTOR, ".txt-data-wrap")),
+            )
         )
 
-        soup = BeautifulSoup(driver.page_source, 'html.parser')
+        soup = BeautifulSoup(driver.page_source, "html.parser")
 
-        # --- 4. TARGET SNOW DATA (Working logic preserved) ---
-        snow_items = soup.find_all('li', class_='snow-item')
+        snow_items = soup.find_all("li", class_=lambda c: c and "snow-item" in c)
         for item in snow_items:
-            dt = item.find('dt')
-            dd = item.find('dd')
+            dt = item.find("dt")
+            dd = item.find("dd")
             if dt and dd:
                 label = dt.get_text(strip=True).lower()
-                if 'depth' in label or '積雪' in label:
+                if "depth" in label or "積雪" in label:
                     value_text = dd.get_text(strip=True)
-                    match = re.search(r'(\d+)', value_text)
+                    match = re.search(r"(\d+)", value_text)
                     if match:
                         snow_depth = match.group(1)
 
-        # --- 5. TARGET LIFT STATUS (Path: span.data-info / span.data-status) ---
-        # Based on your path: txt-data-wrap -> ul.txt-data-list -> li.txt-data-item
-        wrap = soup.find('div', class_='txt-data-wrap')
-        if wrap:
-            lift_items = wrap.find_all('li', class_='txt-data-item')
+        lift_status_dic = _parse_lifts_from_soup(soup)
 
-            for item in lift_items:
-                # Identifying the name in span class="data-info"
-                name_span = item.find('span', class_='data-info')
-                # Identifying the status in span class="data-status"
-                status_span = item.find('span', class_='data-status')
-
-                if name_span and status_span:
-                    name_raw = name_span.get_text(strip=True)
-
-                    # Look for the icon tag <i> inside the status span
-                    status_icon = status_span.find('i', class_=re.compile(r'ico-arai'))
-
-                    if status_icon:
-                        classes = status_icon.get('class', [])
-                        # "ico-arai-open" = Open, anything else = Closed
-                        is_open = any('open' in c.lower() for c in classes)
-                        status = 'Open' if is_open else 'Closed'
-                    else:
-                        status = 'Closed'
-
-                    # Map to English if Japanese is returned
-                    name_en = LIFT_NAME_MAP.get(name_raw, name_raw)
-                    lift_status_dic[name_en] = status
+        if not lift_status_dic:
+            raise RuntimeError(
+                "Lotte Arai: no lift rows parsed after load (DOM change, blocking, or timeout)."
+            )
 
     except Exception as e:
         print(f"LOTTE ARAI SCRAPE ERROR: {e}")
+        raise
     finally:
         driver.quit()
 
-    # --- 6. DATA CONTRACT COMPLIANCE ---
     resort_name = {"resort_name": "Lotte Arai Resort"}
     depth_dic = {"Summit": snow_depth, "Base": snow_depth}
     fall_dic = {"Base": "0"}
-    last_updated = {"last_updated": datetime.now().strftime('%Y-%m-%d %H:%M')}
+    last_updated = {"last_updated": datetime.now().strftime("%Y-%m-%d %H:%M")}
 
     return [
         resort_name,
         depth_dic,
         fall_dic,
         lift_status_dic,
-        last_updated
+        last_updated,
     ]
 
 
