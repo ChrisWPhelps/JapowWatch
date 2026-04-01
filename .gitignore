@@ -9,8 +9,8 @@ ENV/
 .env
 
 # Database & Scraper Data
-#backend/data/*.db
-#backend/data/*.json
+backend/data/*.db
+backend/data/*.json
 
 # OS generated files
 .DS_Store
