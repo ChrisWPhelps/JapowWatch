@@ -14,18 +14,35 @@ from selenium.webdriver.support import expected_conditions as EC
 
 import re
 
+# Site uses "--cm" when closed or a metric is not published; treat as 0 for the contract.
+_CM_TOKEN = re.compile(r"(\d+|--)cm")
+
+
+def _rusutsu_cm_to_str(token: str) -> str:
+    return "0" if token == "--" else token
+
 
 def get_snow_data():
     url = 'https://rusutsu.com/en/snow-and-weather-report/'
     headers = {'User-Agent': 'Mozilla/5.0'}
     response = requests.get(url, headers=headers)
-    soup = BeautifulSoup(response.text, 'html.parser')
 
-    matches = re.findall(r'(\d+)cm', response.text)
+    matches = _CM_TOKEN.findall(response.text)
+    if len(matches) < 8:
+        raise ValueError(
+            f"Rusutsu snow page: expected at least 8 '(digits|-- )cm' tokens, got {len(matches)}"
+        )
 
-    snowdepth = [matches[0], matches[3], matches[6]]
-    snowfall = [matches[1], matches[4], matches[7]]
-
+    snowdepth = [
+        _rusutsu_cm_to_str(matches[0]),
+        _rusutsu_cm_to_str(matches[3]),
+        _rusutsu_cm_to_str(matches[6]),
+    ]
+    snowfall = [
+        _rusutsu_cm_to_str(matches[1]),
+        _rusutsu_cm_to_str(matches[4]),
+        _rusutsu_cm_to_str(matches[7]),
+    ]
 
     mountains = ['West Mt.', 'East Mt.', 'Mt. Isola']
 
@@ -65,12 +82,17 @@ def get_data():
     resort_name = {"resort_name" : "Rusutsu Resort"}
     last_updated = {"last_updated" : datetime.now().strftime('%Y-%m-%d %H:%M')}
 
-    final_return = [resort_name, 
-                    get_snow_data()[0], 
-                    get_snow_data()[1],
-                    get_lift_status(),
-                    last_updated]
-    
+    snow_depth_dic, snowfall_dic = get_snow_data()
+    final_return = [
+        resort_name,
+        snow_depth_dic,
+        snowfall_dic,
+        get_lift_status(),
+        last_updated,
+    ]
+
     return final_return
 
-print(get_data())
+
+if __name__ == "__main__":
+    print(get_data())

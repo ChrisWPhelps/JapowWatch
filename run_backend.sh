@@ -4,11 +4,14 @@ echo "Backend pipeline started..."
 
 cd backend
 
-#rus crapers
 python crawler.py
+CRAWL_EXIT=$?
+if [ "$CRAWL_EXIT" -ne 0 ]; then
+    echo "Crawler failed (exit $CRAWL_EXIT). Aborting pipeline."
+    exit 1
+fi
 
-# 3. Run Validation Tests
-# Validation tests Navigate back to root to run pytest on the tests directory
+# validation tests Navigate back to root to run pytest on the tests directory
 cd ..
 pytest tests/test_parsers.py
 
