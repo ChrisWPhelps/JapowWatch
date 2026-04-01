@@ -18,7 +18,8 @@ from parsers import (
     myoko_akakura_onsen,
     niseko_united,
     rusutsu,
-    sapporo_teine
+    sapporo_teine,
+    sapporo_kokusai,
 )
 from parsers.snow_contract import normalize_scraper_result
 
@@ -47,6 +48,7 @@ def run_crawler():
         ("Niseko United", niseko_united.get_data),
         ("Rusutsu", rusutsu.get_data),
         ("Sapporo Teine", sapporo_teine.get_data),
+        ("Sapporo Kokusai", sapporo_kokusai.get_data),
     ]
 
     success_count = 0

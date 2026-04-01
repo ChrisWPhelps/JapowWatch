@@ -82,7 +82,7 @@ def get_data():
                     break  # first matching data row is enough
 
     # ── Assemble final result ────────────────────────────────────────────────
-    resort_name  = {"resort_name": "Furapuri Ski Resort"}
+    resort_name  = {"resort_name": "Furano Ski Resort"}
     last_updated = {"last_updated": datetime.now().strftime('%Y-%m-%d %H:%M')}
     snowbase     = {"Furano": top_snowbase_cm}
     snowfall = {"Furano": last_snowfall_cm}
