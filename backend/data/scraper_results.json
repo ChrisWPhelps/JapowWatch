@@ -24,7 +24,7 @@
             "Upper Wave": "Open"
         },
         {
-            "last_updated": "2026-04-01 16:23"
+            "last_updated": "2026-04-01 16:54"
         }
     ],
     [
@@ -50,7 +50,7 @@
             "Link Lift": "Closed"
         },
         {
-            "last_updated": "2026-04-01 16:24"
+            "last_updated": "2026-04-01 16:54"
         }
     ],
     [
@@ -72,7 +72,7 @@
             "Pair Lift #2": "Closed"
         },
         {
-            "last_updated": "2026-04-01 16:24"
+            "last_updated": "2026-04-01 16:54"
         }
     ],
     [
@@ -94,7 +94,7 @@
             "Cortina 6th Pair Lift": "Closed"
         },
         {
-            "last_updated": "2026-04-01 16:24"
+            "last_updated": "2026-04-01 16:54"
         }
     ],
     [
@@ -133,7 +133,7 @@
             "Kitaone 3": "Closed"
         },
         {
-            "last_updated": "2026-04-01 16:24"
+            "last_updated": "2026-04-01 16:54"
         }
     ],
     [
@@ -155,7 +155,7 @@
             "Nipo Chair": "Closed"
         },
         {
-            "last_updated": "2026-04-01 16:24"
+            "last_updated": "2026-04-01 16:54"
         }
     ],
     [
@@ -176,16 +176,16 @@
             "Central Express Triple Lift": "Closed",
             "Summit Express Lift": "Closed",
             "Kanko No. 1 Express": "Closed",
-            "Kanko No. 2 Express": "Open",
+            "Kanko No. 2 Express": "Closed",
             "Kita-Maruyama Family Pair Lift": "Closed",
-            "Kanko No. 3 Express": "Open",
+            "Kanko No. 3 Express": "Closed",
             "Green Lift": "Closed",
             "Hatsukaishi No. 1 Triple Lift": "Closed",
             "Hatsukaishi Family Triple/Pair Lift": "Closed",
             "Hatsukaishi Super Lift": "Closed"
         },
         {
-            "last_updated": "2026-04-01 16:24"
+            "last_updated": "2026-04-01 16:55"
         }
     ],
     [
@@ -207,7 +207,7 @@
             "E-Lift [1774]": "Closed"
         },
         {
-            "last_updated": "2026-04-01 16:24"
+            "last_updated": "2026-04-01 16:55"
         }
     ],
     [
@@ -230,33 +230,11 @@
             "Center Express": "Open",
             "Nagamine No.1 Express": "Closed",
             "Nagamine No.2 Express": "Closed",
-            "Family Lift": "Open",
-            "Gateway Express": "Open"
+            "Family Lift": "Closed",
+            "Gateway Express": "Closed"
         },
         {
-            "last_updated": "2026-04-01 16:24"
-        }
-    ],
-    [
-        {
-            "resort_name": "Lotte Arai Resort"
-        },
-        {
-            "Summit": "293",
-            "Base": "293"
-        },
-        {
-            "Base": "0"
-        },
-        {
-            "Zendana Lift": "Open",
-            "Kokenashi Lift": "Open",
-            "Arai Gondola": "Open",
-            "Sanroku 1st lift": "Open",
-            "Sanroku 2nd lift": "Open"
-        },
-        {
-            "last_updated": "2026-04-01 16:25"
+            "last_updated": "2026-04-01 16:55"
         }
     ],
     [
@@ -294,7 +272,7 @@
             "Bear Course": "Closed"
         },
         {
-            "last_updated": "2026-04-01 16:25"
+            "last_updated": "2026-04-01 16:55"
         }
     ],
     [
@@ -325,7 +303,7 @@
             "Ginrei No. 5 Pair": "Closed"
         },
         {
-            "last_updated": "2026-04-01 16:25"
+            "last_updated": "2026-04-01 16:55"
         }
     ],
     [
@@ -354,8 +332,8 @@
         },
         {
             "ANNUPURI | Annupuri Gondola": "Closed",
-            "ANNUPURI | Dream Quad Lift #1": "Open",
-            "ANNUPURI | Jumbo Quad Lift #1": "Open",
+            "ANNUPURI | Dream Quad Lift #1": "Closed",
+            "ANNUPURI | Jumbo Quad Lift #1": "Closed",
             "ANNUPURI | Jumbo Pair Lift #2": "Closed",
             "ANNUPURI | Jumbo Pair Lift #3": "Closed",
             "ANNUPURI | Jumbo Pair Lift #4": "Closed",
@@ -367,22 +345,22 @@
             "NISEKO VILLAGE | Mori No Chair": "Closed",
             "NISEKO VILLAGE | Wonderland Chair": "Closed",
             "NISEKO VILLAGE | Country Road Chair": "Closed",
-            "GRAND HIRAFU | Ace Family Quad Lift": "Open",
-            "GRAND HIRAFU | Ace Gondola": "Open",
+            "GRAND HIRAFU | Ace Family Quad Lift": "Closed",
+            "GRAND HIRAFU | Ace Gondola": "Closed",
             "GRAND HIRAFU | Ace Pair Lift #3": "Closed",
             "GRAND HIRAFU | Ace Pair Lift #4": "Closed",
-            "GRAND HIRAFU | King Gondola": "Open",
-            "GRAND HIRAFU | King Holiday Pair Lift": "Open",
+            "GRAND HIRAFU | King Gondola": "Closed",
+            "GRAND HIRAFU | King Holiday Pair Lift": "Closed",
             "GRAND HIRAFU | King Sixpack Lift #3": "Closed",
             "GRAND HIRAFU | King Single Lift #4": "Closed",
             "GRAND HIRAFU | Swinging Monkey": "Closed",
             "HANAZONO | Hanazono Hooded Lift #1": "Closed",
             "HANAZONO | Hanazono Quad Lift #2": "Closed",
             "HANAZONO | Hanazono Hooded Quad Lift #3": "Closed",
-            "HANAZONO | Hanazono Symphony Gondola": "Open"
+            "HANAZONO | Hanazono Symphony Gondola": "Closed"
         },
         {
-            "last_updated": "2026-04-01 16:25"
+            "last_updated": "2026-04-01 16:55"
         }
     ],
     [
@@ -420,7 +398,7 @@
             "Isola No.5 Pair Lift": "Closed"
         },
         {
-            "last_updated": "2026-04-01 16:25"
+            "last_updated": "2026-04-01 16:55"
         }
     ],
     [
@@ -446,7 +424,7 @@
             "Snow Escalater": "Closed"
         },
         {
-            "last_updated": "2026-04-01 16:25"
+            "last_updated": "2026-04-01 16:55"
         }
     ],
     [
@@ -466,7 +444,7 @@
             "Woody Pair Lift": "Closed"
         },
         {
-            "last_updated": "2026-04-01 16:25"
+            "last_updated": "2026-04-01 16:55"
         }
     ]
 ]
