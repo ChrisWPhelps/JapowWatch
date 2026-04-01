@@ -73,13 +73,17 @@ def export_json():
 
         final_output.append(resort_obj)
 
-    # save to file in root directory
-    output_file = os.path.join('..', 'resort_data.json')
-    with open(output_file, 'w', encoding='utf-8') as f:
-        json.dump(final_output, f, indent=4, ensure_ascii=False)
+    # Save to both root and frontend public for fe local fetch().
+    output_paths = [
+        os.path.join('..', 'resort_data.json'),
+        os.path.join('..', 'frontend', 'public', 'resort_data.json'),
+    ]
+    for output_file in output_paths:
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(final_output, f, indent=4, ensure_ascii=False)
+        print(f"File saved to: {output_file}")
 
-    print(f"Exported--")
-    print(f"File saved to: {output_file}")
+    print("Exported--")
     conn.close()
 
 if __name__ == "__main__":

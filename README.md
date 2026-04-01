@@ -50,9 +50,14 @@ Do these from the **repository root** unless noted.
 
 ### 1) Python
 
-Use **Python 3.11+** (3.12 recommended). The repo is developed with a current 3.x release; avoid versions older than 3.11 unless you verify dependencies yourself.
+Use **Python 3.11+** (3.14.2 ). The repo is developed with a current 3.x release; avoid versions older than 3.11 unless you verify dependencies yourself.
 
-### 2) Virtual environment (recommended)
+### 2) Node.js LTS (for npm)
+
+Install from https://nodejs.org/ (if you have a terminal/IDE open close it after the install for PATH refresh)
+
+
+### 3) Virtual environment (recommended)
 
 ```bash
 python3 -m venv .venv
@@ -60,11 +65,11 @@ source .venv/bin/activate   # Windows: .venv\Scripts\activate
 python -m pip install --upgrade pip
 ```
 
-### 3) Browser for Selenium
+### 4) Browser for Selenium
 
 Several parsers use **Selenium with Chrome** (`webdriver.Chrome()`). Install [Google Chrome](https://www.google.com/chrome/) (or a Chromium-compatible browser supported by your Selenium setup). Selenium 4 can resolve the matching ChromeDriver automatically in many environments.
 
-### 4) API key
+### 5) API key
 
 Create a `.env` file in the repo root (same folder as `README.md`):
 
@@ -74,7 +79,7 @@ OPENWEATHER_API_KEY=your_key_here
 
 Sign up at [OpenWeather](https://openweathermap.org/api) for a key. The export path loads this via [python-dotenv](https://github.com/theskumar/python-dotenv).
 
-### 5) Install Python dependencies
+### 6) Install Python dependencies
 
 With the venv activated:
 
@@ -82,7 +87,7 @@ With the venv activated:
 pip install -r requirements.txt
 ```
 
-### 6) Initialize the database
+### 7) Initialize the database
 
 ```bash
 python backend/init_db.py
@@ -90,7 +95,7 @@ python backend/init_db.py
 
 **Warning:** `init_db.py` **drops and recreates** the `resorts` table and re-seeds it. Do not run it on a database you have customized manually unless you intend to reset resort metadata.
 
-### 7) Make the run script executable (Unix/macOS)
+### 8) Make the run script executable (Unix/macOS)
 
 ```bash
 chmod +x run_backend.sh
