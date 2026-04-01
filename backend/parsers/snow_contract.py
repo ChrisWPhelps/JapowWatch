@@ -1,7 +1,7 @@
 """Shared normalization for scraper snow depth / new-snow dict values (data contract)."""
 
 # Resorts often use "-" or unicode dashes when season ended or depth is not reported.
-DASH_PLACEHOLDERS = frozenset({"-", "–", "―"})
+DASH_PLACEHOLDERS = frozenset({"-", "--", "–", "―"})
 
 
 def normalize_depth_value(raw):
