@@ -97,4 +97,6 @@ def get_data():
 
     return final_return
 
-print (get_data())
+
+if __name__ == "__main__":
+    print(get_data())

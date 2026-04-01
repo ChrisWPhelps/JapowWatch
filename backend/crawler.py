@@ -4,16 +4,21 @@ from datetime import datetime
 
 # Import individual resort parsers from the 'parsers' directory
 from parsers import (
-    rusutsu,
-    hakuba,
-    hakuba_cortina,
     aomori_spring,
+    furano_ski_resort,
     geto_kogen_resort,
-    kandatsu_kogen,
+    hakuba_cortina,
+    hakuba,
+    hoshino_resorts_tomamu,
     ishiuchi,
+    kandatsu_kogen,
+    kiroro_snow_world,
     lotte_arai_resort,
+    madarao_mountain_resort,
     myoko_akakura_onsen,
-    madarao_mountain_resort
+    niseko_united,
+    rusutsu,
+    sapporo_teine
 )
 from parsers.snow_contract import normalize_scraper_result
 
@@ -27,16 +32,21 @@ def run_crawler():
 
     # task list - needs to be updated as crawlers are finished.
     tasks = [
-        ("Rusutsu", rusutsu.get_data),
-        ("Hakuba", hakuba.get_data),
-        ("Hakuba Cortina", hakuba_cortina.get_data),
         ("Aomori Spring", aomori_spring.get_data),
+        ("Furano Ski Resort", furano_ski_resort.get_data),
         ("Geto Kogen Resort", geto_kogen_resort.get_data),
-        ("Kandatsu Kogen", kandatsu_kogen.get_data),
+        ("Hakuba Cortina", hakuba_cortina.get_data),
+        ("Hakuba", hakuba.get_data),
+        ("Hoshino Resorts TOMAMU", hoshino_resorts_tomamu.get_data),
         ("Ishiuchi Maruyama", ishiuchi.get_data),
+        ("Kandatsu Kogen", kandatsu_kogen.get_data),
+        ("Kiroro Snow World", kiroro_snow_world.get_data),
         ("Lotte Arai Resort", lotte_arai_resort.get_data),
-        ("Myoko Akakura Onsen", myoko_akakura_onsen.get_data),
         ("Madarao Mountain Resort", madarao_mountain_resort.get_data),
+        ("Myoko Akakura Onsen", myoko_akakura_onsen.get_data),
+        ("Niseko United", niseko_united.get_data),
+        ("Rusutsu", rusutsu.get_data),
+        ("Sapporo Teine", sapporo_teine.get_data),
     ]
 
     success_count = 0
