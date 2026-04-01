@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./App.css";
 import ResortCard from "./ResortCard";
 import LeafletMap from "./LeafletMap";
 import { statusColors, statusLabels } from "./utils";
 
-// ── Filters
+// ── Filters:  loops through
 function Filters({ resorts, filter, onChange }) {
-  const regions = ["All", ...new Set(resorts.map(r => r.region))];
+  const regions = ["Prefecture", ...new Set(resorts.map(r => r.region))];
   return (
     <div className="filters">
       <select className="filter-select" value={filter.region}
@@ -31,18 +31,26 @@ export default function SkiJapan() {
   }, []);
 
   const [selected, setSelected] = useState(null);
-  const [filter, setFilter] = useState({ region: "All", query: "" });
+  const [filter, setFilter] = useState({ region: "Prefecture", query: "" });
 
   const filtered = resorts.filter(r => {
-    if (filter.region !== "All" && r.region !== filter.region) return false;
+    if (filter.region !== "Prefecture" && r.region !== filter.region) return false;
     if (filter.query) {
       const q = filter.query.toLowerCase();
-      if (!r.name.toLowerCase().includes(q) && !r.region.toLowerCase().includes(q)) return false;
+      if (!r.name.toLowerCase().startsWith(q) && !r.region.toLowerCase().startsWith(q)) return false;
     }
     return true;
   });
 
   const sorted = [...filtered].sort((a, b) => (b.snow_depth_cm ?? 0) - (a.snow_depth_cm ?? 0));
+  
+  const selectedCardRef = useRef(null);
+
+  useEffect(() => {
+    if (selectedCardRef.current) {
+      selectedCardRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }, [selected]);
 
   return (
     <div className="app">
@@ -57,10 +65,6 @@ export default function SkiJapan() {
             <div className="header-stat-value">{resorts.length}</div>
           </div>
           <div className="header-stat">
-            <div className="header-stat-label">With snow data</div>
-            <div className="header-stat-value" style={{ color: "#e8c96a" }}>
-              {resorts.filter(r => r.snow_depth_cm != null).length}
-            </div>
           </div>
           <button className="btn-refresh">↻ Refresh</button>
         </div>
@@ -117,9 +121,12 @@ export default function SkiJapan() {
               <div className="empty-state">No resorts match your filters</div>
             ) : (
               sorted.map(r => (
-                <ResortCard key={r.name} resort={r}
+                <ResortCard     
+                  key={r.name}
+                  resort={r}
                   selected={selected?.name === r.name}
-                  onClick={setSelected} />
+                  onClick={setSelected}
+                  cardRef={selected?.name === r.name ? selectedCardRef : null} />
               ))
             )}
           </div>

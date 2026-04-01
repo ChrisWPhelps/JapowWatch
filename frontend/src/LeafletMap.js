@@ -58,6 +58,7 @@ export default function LeafletMap({ resorts, selected, onSelect }) {
       );
 
       marker.on("click", () => onSelect(resort));
+      // no module on hover 
       marker.addTo(mapRef.current);
       markersRef.current.push(marker);
     });
