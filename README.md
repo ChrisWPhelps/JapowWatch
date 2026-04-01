@@ -6,7 +6,7 @@ This project aggregates live weather and mountain conditions for Japan ski resor
 
 | Path | Purpose |
 |------|---------|
-| **`run_backend.sh`** | Default pipeline: crawl → parser tests → export (from repo root). |
+| **`run_backend.sh`** | Default backend pipeline: crawl → parser tests → export (from repo root), then prints optional frontend start command. |
 | **`requirements.txt`** | Python dependencies (install into a virtual environment). |
 | **`resort_data.json`** | Generated at repo root after a successful export (gitignored). |
 | **`tests/`** | Pytest suite; `test_parsers.py` validates scraper output shape and optional checks on `resort_data.json`. |
@@ -31,7 +31,7 @@ Steps:
 
 1. **`backend/crawler.py`** — runs the configured resort parsers; writes `backend/data/scraper_results.json`.
 2. **`pytest tests/test_parsers.py`** — validates scraper output (schema, numeric snow depths, lifts). Tests run **before** export in this script. The test file may also assert on **`resort_data.json` if it already exists** from a previous run (e.g. weather and coordinates); on a first-time setup that block is skipped until after you have produced at least one export.
-3. **`backend/export_to_frontend.py`** — writes **`resort_data.json`** at the repo root.
+3. **`backend/export_to_frontend.py`** — writes **`resort_data.json`** at the repo root and **`frontend/public/resort_data.json`** for local frontend fetches.
 
 ### Full backend pipeline: `python backend/main.py`
 
@@ -112,9 +112,17 @@ All commands below assume the **repo root** as the current working directory and
 # or: bash run_backend.sh
 ```
 
+The script stays backend-only; after a successful export it prints:
+
+```bash
+cd frontend && npm start
+```
+
 ### Output
 
-After a successful run, open **`resort_data.json`** in the repo root. That file is the frontend-oriented payload (resort metadata, snow, lifts, live weather, timestamp).
+After a successful run, you get:
+- **`resort_data.json`** in the repo root
+- **`frontend/public/resort_data.json`** for Create React App static serving
 
 ### Other entry points
 
