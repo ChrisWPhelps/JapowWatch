@@ -59,3 +59,6 @@ def get_data():
         get_lift_status(),
         last_updated,
     ]
+
+if __name__ == "__main__":
+    print(get_data())
