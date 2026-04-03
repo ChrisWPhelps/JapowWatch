@@ -52,6 +52,14 @@ python backend/init_db.py
 
 `init_db.py` warning: it drops/recreates the `resorts` table and reseeds resort metadata.
 
+
+create a .env file inside the root directory. Inside of it paste
+```env
+OPENWEATHER_API_KEY=your_key_here
+```
+
+
+
 ## Running
 
 All backend commands assume repo root and an activated virtual environment.
