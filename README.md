@@ -78,7 +78,7 @@ This runs:
 On success, the script prints the optional frontend next step:
 
 ```bash
-cd frontend && npm start
+cd frontend && npm install then npm start
 ```
 
 ### Alternate pipeline (no pytest gate)
