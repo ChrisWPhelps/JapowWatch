@@ -62,7 +62,7 @@ OPENWEATHER_API_KEY=your_key_here
 
 ## Running
 
-All backend commands assume repo root and an activated virtual environment.
+All backend commands assume repo root, activated virtual environment, a .env file in root with active API key, and NodeJS installed
 
 ### Recommended pipeline (with parser tests)
 
