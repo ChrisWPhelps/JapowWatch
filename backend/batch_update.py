@@ -3,7 +3,9 @@ import json
 import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(BASE_DIR, 'japow_watch.db')
+DATA_DIR = os.path.join(BASE_DIR, 'data')
+DB_PATH = os.path.join(DATA_DIR, 'japow_watch.db')
+DEFAULT_SCRAPER_JSON = os.path.join(DATA_DIR, 'scraper_results.json')
 
 # Mapping scraper names to DB names **Does this still need to exist**?
 NAME_MAP = {
@@ -37,22 +39,27 @@ def normalize_scraper_data(raw_data):
         return None
 
 
-def process_scraper_file(file_name='scraper_results.json'):
-    #reads JSON file with scraper results -> updates db.
-    file_path = os.path.join(BASE_DIR, file_name)
+def process_scraper_file(file_name=None):
+    # Reads JSON file with scraper results -> updates db. Default matches crawler output.
+    if file_name is None:
+        file_path = DEFAULT_SCRAPER_JSON
+    elif os.path.isabs(file_name):
+        file_path = file_name
+    else:
+        file_path = os.path.join(BASE_DIR, file_name)
 
     if not os.path.exists(file_path):
-        print(f"SKIPPING: {file_name} not found. No scraper data to process.")
+        print(f"SKIPPING: {file_path} not found. No scraper data to process.")
         return
 
     try:
         with open(file_path, 'r') as f:
             all_results = json.load(f)
     except json.JSONDecodeError:
-        print(f"ERROR: {file_name} is not valid JSON.")
+        print(f"ERROR: {file_path} is not valid JSON.")
         return
 
-    conn = sqlite3.connect('data/japow_watch.db')
+    conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
 
     #check if input is single or multiple resortt list
