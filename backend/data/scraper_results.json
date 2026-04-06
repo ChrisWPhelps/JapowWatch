@@ -4,7 +4,7 @@
             "resort_name": "Aomori Spring"
         },
         {
-            "Resort Base": "375"
+            "Resort Base": "0"
         },
         {
             "Resort Base": "0"
@@ -12,19 +12,19 @@
         {
             "Panorama": "Closed",
             "Mainline": "Closed",
-            "Sunshine": "Open",
+            "Sunshine": "Closed",
             "Skyline  Connector": "Closed",
             "Family": "Closed",
-            "Slender Line": "Open",
+            "Slender Line": "Closed",
             "Twister Connecter": "Closed",
             "Family Connecter": "Closed",
             "Aspen": "Closed",
-            "Aspen Connecter": "Open",
-            "Paradise": "Open",
-            "Upper Wave": "Open"
+            "Aspen Connecter": "Closed",
+            "Paradise": "Closed",
+            "Upper Wave": "Closed"
         },
         {
-            "last_updated": "2026-04-01 19:07"
+            "last_updated": "2026-04-06 14:53"
         }
     ],
     [
@@ -32,15 +32,15 @@
             "resort_name": "Furano Ski Resort"
         },
         {
-            "Furano": "175"
+            "Furano": "140"
         },
         {
             "Furano": "0"
         },
         {
-            "Furano Ropeway": "Closed",
+            "Furano Ropeway": "Open",
             "Furano Downhill Romance No.1": "Closed",
-            "Furano Downhill Romance No.2": "Closed",
+            "Furano Downhill Romance No.2": "Open",
             "Furano Downhill Romance No.3": "Closed",
             "Prince Romance": "Closed",
             "Snow Escalator": "Closed",
@@ -50,7 +50,7 @@
             "Link Lift": "Closed"
         },
         {
-            "last_updated": "2026-04-01 19:07"
+            "last_updated": "2026-04-06 14:53"
         }
     ],
     [
@@ -58,8 +58,8 @@
             "resort_name": "Geto Kogen Resort"
         },
         {
-            "Summit": "290",
-            "Base": "180"
+            "Summit": "270",
+            "Base": "145"
         },
         {
             "Base": "0"
@@ -68,11 +68,11 @@
             "Gondola #1": "Open",
             "Gondola #2": "Closed",
             "Quad Lift": "Closed",
-            "Pair Lift #1": "Open",
+            "Pair Lift #1": "Closed",
             "Pair Lift #2": "Closed"
         },
         {
-            "last_updated": "2026-04-01 19:07"
+            "last_updated": "2026-04-06 14:53"
         }
     ],
     [
@@ -94,7 +94,7 @@
             "Cortina 6th Pair Lift": "Closed"
         },
         {
-            "last_updated": "2026-04-01 19:07"
+            "last_updated": "2026-04-06 14:53"
         }
     ],
     [
@@ -102,8 +102,8 @@
             "resort_name": "Hakuba Happo-One"
         },
         {
-            "Kurobishi": "140",
-            "Usagidaira": "64",
+            "Kurobishi": "105",
+            "Usagidaira": "35",
             "Nakiyama": "0"
         },
         {
@@ -113,27 +113,27 @@
         },
         {
             "Grat Quad": "Closed",
-            "Alpen Quad": "Closed",
+            "Alpen Quad": "Open",
             "Usagidaira": "Closed",
             "Happo Riesen Quad": "Closed",
             "Nakiyama 2": "Closed",
             "Nakiyama 3": "Closed",
-            "ADAM Gondola": "Closed",
+            "ADAM Gondola": "Open",
             "Shirakaba 1": "Closed",
             "Shirakaba 2": "Closed",
-            "Panorama": "Closed",
+            "Panorama": "Open",
             "Kokusai 1": "Closed",
-            "Kokusai 3": "Closed",
-            "Kurobishi Quad": "Closed",
+            "Kokusai 3": "Open",
+            "Kurobishi Quad": "Open",
             "Kurobishi 3": "Closed",
-            "Skyline 2": "Closed",
+            "Skyline 2": "Open",
             "Sakka 2": "Closed",
             "Sakka 3": "Closed",
             "Sakka Kitaone Quad": "Closed",
             "Kitaone 3": "Closed"
         },
         {
-            "last_updated": "2026-04-01 19:07"
+            "last_updated": "2026-04-06 14:53"
         }
     ],
     [
@@ -141,7 +141,7 @@
             "resort_name": "Hoshino Resorts TOMAMU"
         },
         {
-            "Tomamu": "144"
+            "Tomamu": "130"
         },
         {
             "Tomamu": "0"
@@ -155,7 +155,7 @@
             "Nipo Chair": "Closed"
         },
         {
-            "last_updated": "2026-04-01 19:07"
+            "last_updated": "2026-04-06 14:53"
         }
     ],
     [
@@ -163,8 +163,8 @@
             "resort_name": "Ishiuchi Maruyama"
         },
         {
-            "Summit": "60",
-            "Base": "60"
+            "Summit": "0",
+            "Base": "0"
         },
         {
             "Base": "0"
@@ -185,7 +185,7 @@
             "Hatsukaishi Super Lift": "Closed"
         },
         {
-            "last_updated": "2026-04-01 19:08"
+            "last_updated": "2026-04-06 14:53"
         }
     ],
     [
@@ -193,21 +193,21 @@
             "resort_name": "Kandatsu Kogen"
         },
         {
-            "Summit": "85",
-            "Base": "85"
+            "Summit": "50",
+            "Base": "50"
         },
         {
             "Base": "0"
         },
         {
-            "A-lift [1770]": "Closed",
+            "A-lift [1770]": "Open",
             "B-lift [1771]": "Closed",
-            "C-lift [1772]": "Closed",
+            "C-lift [1772]": "Open",
             "D-Lift [1773]": "Closed",
             "E-Lift [1774]": "Closed"
         },
         {
-            "last_updated": "2026-04-01 19:08"
+            "last_updated": "2026-04-06 14:54"
         }
     ],
     [
@@ -215,8 +215,8 @@
             "resort_name": "Kiroro Snow World"
         },
         {
-            "Peak": "350",
-            "Base": "170"
+            "Peak": "320",
+            "Base": "140"
         },
         {
             "24h": "0"
@@ -225,16 +225,16 @@
             "Kiroro Gondola": "Closed",
             "Asari No.1 Lift": "Closed",
             "Asari No.2 Express": "Closed",
-            "Yoichi No.1 Express": "Closed",
+            "Yoichi No.1 Express": "Open",
             "Yoichi No.2 Lift": "Closed",
-            "Center Express": "Closed",
-            "Nagamine No.1 Express": "Closed",
-            "Nagamine No.2 Express": "Closed",
-            "Family Lift": "Closed",
-            "Gateway Express": "Closed"
+            "Center Express": "Open",
+            "Nagamine No.1 Express": "Open",
+            "Nagamine No.2 Express": "Open",
+            "Family Lift": "Open",
+            "Gateway Express": "Open"
         },
         {
-            "last_updated": "2026-04-01 19:08"
+            "last_updated": "2026-04-06 14:54"
         }
     ],
     [
@@ -272,7 +272,7 @@
             "Bear Course": "Closed"
         },
         {
-            "last_updated": "2026-04-01 19:08"
+            "last_updated": "2026-04-06 14:54"
         }
     ],
     [
@@ -303,7 +303,7 @@
             "Ginrei No. 5 Pair": "Closed"
         },
         {
-            "last_updated": "2026-04-01 19:08"
+            "last_updated": "2026-04-06 14:54"
         }
     ],
     [
@@ -313,12 +313,12 @@
         {
             "ANNUPURILIVE WEATHER | Peak": "270",
             "ANNUPURILIVE WEATHER | Base": "80",
-            "NISEKO VILLAGELIVE WEATHER | Peak": "219",
-            "NISEKO VILLAGELIVE WEATHER | Base": "106",
-            "GRAND HIRAFULIVE WEATHER | Peak": "320",
-            "GRAND HIRAFULIVE WEATHER | Base": "60",
-            "HANAZONOLIVE WEATHER | Peak": "250",
-            "HANAZONOLIVE WEATHER | Base": "130"
+            "NISEKO VILLAGELIVE WEATHER | Peak": "208",
+            "NISEKO VILLAGELIVE WEATHER | Base": "92",
+            "GRAND HIRAFULIVE WEATHER | Peak": "290",
+            "GRAND HIRAFULIVE WEATHER | Base": "40",
+            "HANAZONOLIVE WEATHER | Peak": "220",
+            "HANAZONOLIVE WEATHER | Base": "105"
         },
         {
             "ANNUPURILIVE WEATHER | Peak 24h": "24",
@@ -331,36 +331,36 @@
             "HANAZONOLIVE WEATHER | Base 24h": "24"
         },
         {
-            "ANNUPURI | Annupuri Gondola": "Closed",
-            "ANNUPURI | Dream Quad Lift #1": "Closed",
-            "ANNUPURI | Jumbo Quad Lift #1": "Closed",
+            "ANNUPURI | Annupuri Gondola": "Open",
+            "ANNUPURI | Dream Quad Lift #1": "Open",
+            "ANNUPURI | Jumbo Quad Lift #1": "Open",
             "ANNUPURI | Jumbo Pair Lift #2": "Closed",
             "ANNUPURI | Jumbo Pair Lift #3": "Closed",
             "ANNUPURI | Jumbo Pair Lift #4": "Closed",
-            "NISEKO VILLAGE | Niseko Gondola": "Closed",
+            "NISEKO VILLAGE | Niseko Gondola": "Open",
             "NISEKO VILLAGE | Upper Village Gondola": "Closed",
             "NISEKO VILLAGE | Village Express": "Closed",
-            "NISEKO VILLAGE | Community Chair": "Closed",
+            "NISEKO VILLAGE | Community Chair": "Open",
             "NISEKO VILLAGE | Banzai Chair": "Closed",
             "NISEKO VILLAGE | Mori No Chair": "Closed",
             "NISEKO VILLAGE | Wonderland Chair": "Closed",
-            "NISEKO VILLAGE | Country Road Chair": "Closed",
-            "GRAND HIRAFU | Ace Family Quad Lift": "Closed",
-            "GRAND HIRAFU | Ace Gondola": "Closed",
+            "NISEKO VILLAGE | Country Road Chair": "Open",
+            "GRAND HIRAFU | Ace Family Quad Lift": "Open",
+            "GRAND HIRAFU | Ace Gondola": "Open",
             "GRAND HIRAFU | Ace Pair Lift #3": "Closed",
             "GRAND HIRAFU | Ace Pair Lift #4": "Closed",
             "GRAND HIRAFU | King Gondola": "Closed",
             "GRAND HIRAFU | King Holiday Pair Lift": "Closed",
-            "GRAND HIRAFU | King Sixpack Lift #3": "Closed",
+            "GRAND HIRAFU | King Sixpack Lift #3": "Open",
             "GRAND HIRAFU | King Single Lift #4": "Closed",
             "GRAND HIRAFU | Swinging Monkey": "Closed",
             "HANAZONO | Hanazono Hooded Lift #1": "Closed",
-            "HANAZONO | Hanazono Quad Lift #2": "Closed",
-            "HANAZONO | Hanazono Hooded Quad Lift #3": "Closed",
-            "HANAZONO | Hanazono Symphony Gondola": "Closed"
+            "HANAZONO | Hanazono Quad Lift #2": "Open",
+            "HANAZONO | Hanazono Hooded Quad Lift #3": "Operation slowed",
+            "HANAZONO | Hanazono Symphony Gondola": "Open"
         },
         {
-            "last_updated": "2026-04-01 19:08"
+            "last_updated": "2026-04-06 14:54"
         }
     ],
     [
@@ -398,7 +398,7 @@
             "Isola No.5 Pair Lift": "Closed"
         },
         {
-            "last_updated": "2026-04-01 19:08"
+            "last_updated": "2026-04-06 14:54"
         }
     ],
     [
@@ -406,7 +406,7 @@
             "resort_name": "Sapporo Teine"
         },
         {
-            "Niseko": "275"
+            "Niseko": "250"
         },
         {
             "Niseko": "0"
@@ -424,7 +424,7 @@
             "Snow Escalater": "Closed"
         },
         {
-            "last_updated": "2026-04-01 19:08"
+            "last_updated": "2026-04-06 14:54"
         }
     ],
     [
@@ -432,19 +432,19 @@
             "resort_name": "Sapporo Kokusai"
         },
         {
-            "Sapporo Kokusai": "280"
+            "Sapporo Kokusai": "270"
         },
         {
             "Sapporo Kokusai": "0"
         },
         {
-            "SkyCabin8": "Closed",
-            "Marchen Quad Lift": "Closed",
+            "SkyCabin8": "Open",
+            "Marchen Quad Lift": "Open",
             "Echo Quad Lift": "Closed",
-            "Woody Pair Lift": "Closed"
+            "Woody Pair Lift": "Open"
         },
         {
-            "last_updated": "2026-04-01 19:08"
+            "last_updated": "2026-04-06 14:54"
         }
     ]
 ]

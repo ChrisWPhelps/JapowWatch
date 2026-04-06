@@ -3,6 +3,12 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import re
 
+try:
+    from parsers.snow_contract import normalize_depth_value
+except ModuleNotFoundError:
+    # Running as `python parsers/aomori_spring.py` (cwd backend): package root not on path
+    from snow_contract import normalize_depth_value
+
 
 def get_snow():
     url = 'https://aomorispring.com/ski/lift-course-status'
@@ -19,11 +25,13 @@ def get_snow():
 
     if depth_label:
         val = depth_label.find_next('span', class_='font-bold')
-        if val: depth = val.get_text(strip=True)
+        if val:
+            depth = normalize_depth_value(val.get_text(strip=True))
 
     if fall_label:
         val = fall_label.find_next('span', class_='font-bold')
-        if val: fall = val.get_text(strip=True)
+        if val:
+            fall = normalize_depth_value(val.get_text(strip=True))
 
     # THE SWAP: If the 'fall' we found is huge (the 420) and depth is 0,
     # we know the labels on the site are effectively swapped for our DB

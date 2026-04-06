@@ -63,7 +63,7 @@ export default function SkiJapan() {
     <div className="app">
       <header className="header">
         <div className="header-left">
-          <span className="logo">SkiPiea</span>
+          <span className="logo">JapowWatch</span>
           <span className="logo-sub">Japan Ski Explorer</span>
         </div>
         <div className="header-right">
