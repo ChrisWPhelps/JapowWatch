@@ -36,7 +36,9 @@ export default function ResortCard({ resort, selected, onClick, cardRef }) {
             color: sc,
           }}
         >
-          {resort.timestamp ? new Date(resort.timestamp).toLocaleString() : "Unknown"}
+          {resort.timestamp
+  ? `Last updated ${new Date(resort.timestamp).toLocaleString()}`
+  : "Unknown"}
         </div>
       </div>
 
